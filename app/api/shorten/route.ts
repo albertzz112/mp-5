@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
 
         await db.collection("urls").insertOne({ url, alias });
         return NextResponse.json({ alias }, { status: 201 });
-    } catch (e) {
+    } catch {
         return NextResponse.json({ error: "Server error" }, { status: 500 });
     }
 }
