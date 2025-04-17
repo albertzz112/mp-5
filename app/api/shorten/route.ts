@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectToDB } from "@/lib/db";
-import { Url } from "@/lib/models";
 
 export async function POST(req: NextRequest) {
     const { url, alias } = await req.json();
