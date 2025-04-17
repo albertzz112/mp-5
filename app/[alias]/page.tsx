@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 import { connectToDB } from "@/lib/db";
 
-export default async function AliasPage({ params }: { params: Promise<{ alias: string }> }) {
-    const { alias } = await params;
+export default async function AliasPage({ params }: { params: { alias: string } }) {
+    const { alias } = params;
 
     const db = await connectToDB();
     const record = await db.collection("urls").findOne({ alias });
