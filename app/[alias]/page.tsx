@@ -3,11 +3,11 @@ export const dynamic = "force-dynamic";
 import { redirect } from "next/navigation";
 import { connectToDB } from "@/lib/db";
 
-interface PageProps {
+export default async function AliasPage({
+                                            params,
+                                        }: {
     params: { alias: string };
-}
-
-export default async function AliasPage({ params }: PageProps) {
+}) {
     const db = await connectToDB();
     const record = await db.collection("urls").findOne({ alias: params.alias });
 
